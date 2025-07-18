@@ -32,11 +32,40 @@ border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .nav-content {
-max-width: 1200px;
-margin: 0 auto;
-display: flex;
-justify-content: space-between;
-align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.language-selector select {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  color: white;
+  padding: 0.8rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.language-selector select:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(59, 130, 246, 0.5);
+}
+
+.language-selector select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.language-selector option {
+  background: #1e293b;
+  color: white;
 }
 
 .logo {
@@ -224,15 +253,16 @@ grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 
 <body>
 <nav class="navbar">
-<select id="languageSelect" onchange="setLanguage(this.value)">
-<option value="th">ไทย</option>
-<option value="en">English</option>
-</select>
-
-<div class="nav-content">
-<div class="logo">📊 Math4Startup</div>
-</div>
-</nav>
+    <div class="nav-content">
+      <div class="logo">📊 Math4Startup</div>
+      <div class="language-selector">
+        <select id="languageSelect" onchange="setLanguage(this.value)">
+          <option value="th" data-i18n="langThai">🇹🇭 ไทย</option>
+          <option value="en" data-i18n="langEnglish">🇺🇸 English</option>
+        </select>
+      </div>
+    </div>
+  </nav>
 
 <div class="main-container">
 <div class="hero-section">
